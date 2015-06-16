@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.hszg.notenprogramm.frontend.LehrplanView">
+   <children>
+      <VBox spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label style="-fx-font-size: 2em;" text="Lehrplan" />
+            <HBox alignment="CENTER_LEFT" spacing="5.0">
+               <children>
+                  <TextField fx:id="bezeichnungInput" promptText="Bezeichnung" />
+                  <Label text="ECTS:" />
+                  <Spinner fx:id="ectsInput" style="-fx-pref-width: 8em;" />
+                  <Button mnemonicParsing="false" onAction="#fachAnlegen" text="Fach anlegen" />
+               </children>
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </HBox>
+            <ListView fx:id="faecherList" prefHeight="200.0" prefWidth="200.0" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

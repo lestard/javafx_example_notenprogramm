@@ -2,52 +2,68 @@ package de.hszg.notenprogramm.frontend;
 
 import de.hszg.notenprogramm.model.Fach;
 import de.hszg.notenprogramm.model.Lehrplan;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.SpinnerValueFactory;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.net.URL;
 
 public class LehrplanView {
 
     @FXML
-    public TextField bezeichnungInput;
+    public TableView<Fach> faecherTable;
     @FXML
-    public Spinner<Integer> ectsInput;
+    public TableColumn<Fach, String> fachColumn;
     @FXML
-    public ListView<String> faecherList;
+    public TableColumn<Fach, Integer> semesterColumn;
+    @FXML
+    public TableColumn<Fach, Integer> noteColumn;
+    @FXML
+    public TableColumn<Fach, Integer> ectsColumn;
 
+    private Lehrplan lehrplan = Lehrplan.getInstance();
 
-    private Lehrplan lehrplan = new Lehrplan();
-
+    private ObservableList<Fach> faecherList = FXCollections.observableArrayList();
 
     public void initialize() {
+        faecherTable.setItems(faecherList);
+        updateFaecherListe();
 
-        ectsInput.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 30, 5, 1));
 
+        fachColumn.setCellValueFactory(new PropertyValueFactory<>("titel"));
+        semesterColumn.setCellValueFactory(new PropertyValueFactory<>("semester"));
+        noteColumn.setCellValueFactory(new PropertyValueFactory<>("note"));
+        ectsColumn.setCellValueFactory(new PropertyValueFactory<>("ectsPoints"));
 
     }
 
-    public void fachAnlegen() {
+    public void fachAnlegen() throws IOException {
 
-        final String titel = bezeichnungInput.getText();
+        final URL resource = this.getClass().getResource("/fxml/FachEditDialog.fxml");
+        if(resource != null) {
+            FXMLLoader fxmlLoader = new FXMLLoader(resource);
 
-        if(titel != null && !titel.trim().isEmpty()) {
-            if(lehrplan.isFachTitelBelegt(titel)) {
-                System.out.println("Es existiert bereits ein Fach mit dem Titel \"" + titel + "\"");
-                return;
-            }
+            Stage dialogStage = new Stage();
 
-            lehrplan.addFach(new Fach(titel, ectsInput.getValue()));
+            fxmlLoader.load();
+            final Parent root = fxmlLoader.getRoot();
+
+            dialogStage.setScene(new Scene(root));
+            dialogStage.showAndWait();
+
             updateFaecherListe();
         }
     }
 
     private void updateFaecherListe() {
-        faecherList.getItems().clear();
-
-        lehrplan.getFaecher().stream()
-                .map(fach -> fach.getTitel() + " (" + fach.getEctsPoints() + " ects)")
-                .forEach(titel -> faecherList.getItems().add(titel));
+        faecherList.setAll(lehrplan.getFaecher());
     }
 }

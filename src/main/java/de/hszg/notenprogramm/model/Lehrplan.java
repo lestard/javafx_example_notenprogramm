@@ -6,6 +6,15 @@ import java.util.List;
 
 public class Lehrplan extends Identity{
 
+    private static final Lehrplan SINGLETON = new Lehrplan();
+
+    public static Lehrplan getInstance() {
+        return SINGLETON;
+    }
+    private Lehrplan() {
+    }
+
+
     private List<Fach> faecher = new ArrayList<>();
 
     public void addFach(Fach fach) {

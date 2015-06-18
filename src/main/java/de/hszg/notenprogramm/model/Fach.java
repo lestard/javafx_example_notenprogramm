@@ -8,9 +8,12 @@ public class Fach extends Identity {
 
     private int note;
 
-    public Fach(String titel, int ectsPoints) {
+    private int semester;
+
+    public Fach(String titel, int ectsPoints, int semester) {
         this.titel = titel;
         this.ectsPoints = ectsPoints;
+        this.semester = semester;
     }
 
 
@@ -41,5 +44,13 @@ public class Fach extends Identity {
 
     public void setNote(int note) {
         this.note = note;
+    }
+
+    public int getSemester() {
+        return semester;
+    }
+
+    public void setSemester(int semester) {
+        this.semester = semester;
     }
 }

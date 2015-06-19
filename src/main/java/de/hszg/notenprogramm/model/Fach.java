@@ -6,7 +6,7 @@ public class Fach extends Identity {
 
     private int ectsPoints;
 
-    private int note;
+    private double note;
 
     private int semester;
 
@@ -38,11 +38,11 @@ public class Fach extends Identity {
         this.ectsPoints = ectsPoints;
     }
 
-    public int getNote() {
+    public double getNote() {
         return note;
     }
 
-    public void setNote(int note) {
+    public void setNote(double note) {
         this.note = note;
     }
 

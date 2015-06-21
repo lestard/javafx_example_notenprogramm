@@ -21,7 +21,7 @@ public class App extends Application {
 
         TestDataGenerator.generate();
 
-        String path = "/fxml/LehrplanView.fxml";
+        String path = "/fxml/MainView.fxml";
 
         final URL resource = this.getClass().getResource(path);
         if(resource == null) {

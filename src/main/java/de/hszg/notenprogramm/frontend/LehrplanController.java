@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 
-public class LehrplanView {
+public class LehrplanController {
 
     @FXML
     public TableView<Fach> faecherTable;

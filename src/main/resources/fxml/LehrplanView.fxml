@@ -1,32 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.hszg.notenprogramm.frontend.LehrplanView">
+<VBox spacing="10.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.hszg.notenprogramm.frontend.LehrplanController">
    <children>
-      <VBox spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Label styleClass="headline" text="Lehrplan" />
-            <HBox>
-               <children>
-                  <Button onAction="#fachAnlegen" text="Fach anlegen" />
-               </children>
-            </HBox>
-            <TableView fx:id="faecherTable" VBox.vgrow="ALWAYS">
-              <columns>
-                <TableColumn fx:id="fachColumn" prefWidth="400.0" text="Fach" />
-                <TableColumn fx:id="semesterColumn" prefWidth="100.0" text="Semester" />
-                  <TableColumn fx:id="noteColumn" prefWidth="75.0" text="Note" />
-                  <TableColumn fx:id="ectsColumn" prefWidth="50.0" text="ECTS" />
-              </columns>
-            </TableView>
-         </children>
-         <padding>
+      <Label styleClass="headline" text="Lehrplan">
+         <VBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </padding>
-      </VBox>
+         </VBox.margin>
+      </Label>
+      <Button onAction="#fachAnlegen" text="Fach anlegen" />
+      <TableView fx:id="faecherTable" VBox.vgrow="ALWAYS">
+         <columns>
+            <TableColumn fx:id="fachColumn" prefWidth="400.0" text="Fach" />
+            <TableColumn fx:id="semesterColumn" prefWidth="100.0" text="Semester" />
+            <TableColumn fx:id="noteColumn" prefWidth="75.0" text="Note" />
+            <TableColumn fx:id="ectsColumn" prefWidth="50.0" text="ECTS" />
+         </columns>
+      </TableView>
    </children>
-</AnchorPane>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</VBox>

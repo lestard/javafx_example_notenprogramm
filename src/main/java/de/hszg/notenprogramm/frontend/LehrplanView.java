@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 
 public class LehrplanView {
 
@@ -52,9 +53,7 @@ public class LehrplanView {
 
             MenuItem noteEintragenItem = new MenuItem("Note eintragen");
 
-            noteEintragenItem.setOnAction(event -> {
-                noteEintragen();
-            });
+            noteEintragenItem.setOnAction(event -> noteEintragen());
 
             contextMenu.getItems().add(noteEintragenItem);
 
@@ -62,6 +61,12 @@ public class LehrplanView {
                     Bindings.when(row.emptyProperty())
                     .then((ContextMenu) null)
                     .otherwise(contextMenu));
+
+            row.setOnMouseClicked(event -> {
+                if(event.getClickCount() > 1) {
+                    noteEintragen();
+                }
+            });
 
             return row;
         });
@@ -72,12 +77,20 @@ public class LehrplanView {
         final Fach fach = faecherTable.getSelectionModel().getSelectedItem();
 
 
-        final double note = NotenEingabeDialog.show(fach.getNote());
+        final NotenEingabeDialog notenEingabeDialog = new NotenEingabeDialog(fach.getNote());
 
-        fach.setNote(note);
+        final Optional<Double> result = notenEingabeDialog.showAndWait();
 
-        updateFaecherListe();
+        result.ifPresent(newNote -> {
 
+            if(newNote < 0) {
+                fach.setNote(null);
+            } else {
+                fach.setNote(newNote);
+            }
+
+            updateFaecherListe();
+        });
     }
 
     public void fachAnlegen() throws IOException {

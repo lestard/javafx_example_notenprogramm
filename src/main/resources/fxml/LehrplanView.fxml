@@ -15,12 +15,12 @@
                   <Button onAction="#fachAnlegen" text="Fach anlegen" />
                </children>
             </HBox>
-            <TableView fx:id="faecherTable">
+            <TableView fx:id="faecherTable" VBox.vgrow="ALWAYS">
               <columns>
-                <TableColumn fx:id="fachColumn" prefWidth="75.0" text="Fach" />
-                <TableColumn fx:id="semesterColumn" prefWidth="75.0" text="Semester" />
+                <TableColumn fx:id="fachColumn" prefWidth="400.0" text="Fach" />
+                <TableColumn fx:id="semesterColumn" prefWidth="100.0" text="Semester" />
                   <TableColumn fx:id="noteColumn" prefWidth="75.0" text="Note" />
-                  <TableColumn fx:id="ectsColumn" prefWidth="75.0" text="ECTS" />
+                  <TableColumn fx:id="ectsColumn" prefWidth="50.0" text="ECTS" />
               </columns>
             </TableView>
          </children>

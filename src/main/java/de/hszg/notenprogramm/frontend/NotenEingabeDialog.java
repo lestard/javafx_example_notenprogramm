@@ -1,45 +1,55 @@
 package de.hszg.notenprogramm.frontend;
 
 import javafx.geometry.Insets;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.SpinnerValueFactory;
+import javafx.geometry.Pos;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
-public class NotenEingabeDialog {
-
+public class NotenEingabeDialog extends Dialog<Double>{
 
 
-    public static double show(double previousNote) {
+    public NotenEingabeDialog(Double previousNote) {
+        this.setTitle("Noten Dialog");
+        this.setHeaderText("Bitte die Note eingeben");
+
+        ButtonType ok = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
+        ButtonType delete = new ButtonType("Löschen", ButtonBar.ButtonData.OTHER);
+        ButtonType cancel = new ButtonType("Abbrechen", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        getDialogPane().getButtonTypes().addAll(ok, delete, cancel);
+
+        setResizable(true);
+
         VBox root = new VBox();
         root.setSpacing(10);
         root.setPadding(new Insets(10));
+        root.setAlignment(Pos.CENTER);
 
         Spinner<Double> spinner = new Spinner<>();
-        spinner.setValueFactory(new SpinnerValueFactory.DoubleSpinnerValueFactory(1.0, 4.0, previousNote, 0.1));
+        spinner.setValueFactory(new SpinnerValueFactory.DoubleSpinnerValueFactory(1.0, 4.0, previousNote == null ? 2.0 : previousNote, 0.1));
+
+        root.getChildren().add(spinner);
+
+        getDialogPane().setContent(root);
+
+        setOnShown(e -> spinner.requestFocus());
 
 
-        Button okButton = new Button("OK");
-        root.getChildren().addAll(spinner, okButton);
+        setResultConverter(dialogButton -> {
+            if(dialogButton == ok) {
+                return spinner.getValue();
+            }
 
-        Stage dialogStage = new Stage();
-        dialogStage.setScene(new Scene(root));
+            if(dialogButton == delete) {
+                return -1.0;
+            }
 
-        okButton.setOnAction(event -> {
-            dialogStage.close();
+            if(dialogButton == cancel) {
+                return previousNote;
+            }
+
+            return null;
         });
 
-        dialogStage.showAndWait();
-
-
-
-        return spinner.getValue();
     }
-
-    public static double show() {
-        return show(1.0);
-    }
-
 }

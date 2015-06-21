@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:controller="de.hszg.notenprogramm.frontend.DurchschnittController" alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label styleClass="headline" text="Noten-Durchschnitt">
          <VBox.margin>
@@ -26,9 +26,9 @@
             <Label text="Aktuell:" />
             <Label text="Enddurchschnitt im besten Fall:" GridPane.rowIndex="1" />
             <Label text="Enddurchschnitt im schlechtesten Fall:" GridPane.rowIndex="2" />
-            <Label fx:id="aktuellerDurchschnitt" text="Label" GridPane.columnIndex="1" />
-            <Label fx:id="bestCase" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label fx:id="worstCase" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="aktuell" text="" GridPane.columnIndex="1" />
+            <Label fx:id="bestCase" text="" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="worstCase" text="" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
       <LineChart fx:id="durchschnittChart" VBox.vgrow="ALWAYS">

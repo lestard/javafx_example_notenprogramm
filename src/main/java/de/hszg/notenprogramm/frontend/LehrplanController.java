@@ -2,6 +2,7 @@ package de.hszg.notenprogramm.frontend;
 
 import de.hszg.notenprogramm.model.Fach;
 import de.hszg.notenprogramm.model.Lehrplan;
+import de.hszg.notenprogramm.util.PubSub;
 import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -89,6 +90,9 @@ public class LehrplanController {
                 fach.setNote(newNote);
             }
 
+
+            PubSub.publish("UPDATE_NOTES");
+
             updateFaecherListe();
         });
     }
@@ -106,6 +110,8 @@ public class LehrplanController {
 
             dialogStage.setScene(new Scene(root));
             dialogStage.showAndWait();
+
+            PubSub.publish("UPDATE_NOTES");
 
             updateFaecherListe();
         }

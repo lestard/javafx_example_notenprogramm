@@ -6,7 +6,7 @@
       <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <fx:include source="LehrplanView.fxml"/>
-            <fx:include source="DurchschnittView.fxml"/>
+            <fx:include source="DurchschnittView.fxml" HBox.hgrow="ALWAYS"/>
          </children>
       </HBox>
    </children>

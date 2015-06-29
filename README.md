@@ -20,13 +20,12 @@ Die folgende Abbildung zeigt das Noten-Tracking-Programm.
 ![an app screenshot](./notenprogramm-app-screenshot.png)
 
 Auf der linken Seite ist eine Tabelle mit Noten für Kurse oder Fächer zu sehen. Mit dem Button darüber kann diese Liste 
-durch weitere konkrete Fächer ergänzt werden. Beim Anlegen wird ein Fach mit einer versehenen Punktezahl -- den ECTS 
+durch weitere konkrete Fächer ergänzt werden. Beim Anlegen wird ein Fach mit einer Punktezahl versehen -- den ECTS 
 Points. Diese stellen eine Art Gewichtung für eine zu erreichende Endnote des Studiums dar.
 Via Doppelklick auf einen Eintrag für ein Fach öffnet sich ein Dialog. Diesem kann dann die erreichte Note 
 eingetragen werden.
 
-Auf der rechten Seite aktualisiert sich mit jedem weiteren eine Statistik über die eingetragenen Noten. Sie zeigt 
-eine Prognose an, welche Abschlussnote man im besten oder im schlechtesten Fall noch erreichen kann. Mit jedem 
+Auf der rechten Seite aktualisiert sich mit jedem weiteren Noteneintrag eine Statistik über die eingetragenen Noten. Sie zeigt eine Prognose an, welche Abschlussnote man im besten oder im schlechtesten Fall noch erreichen kann. Mit jedem 
 weiteren Eintrag wird der Spielraum für die Endnote enger.
 
 Der Student kann damit sein zu erreichendes Notenziel für den Abschluss des Studiums überprüfen und planen.

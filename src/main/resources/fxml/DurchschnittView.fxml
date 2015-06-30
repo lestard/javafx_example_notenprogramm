@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:controller="de.hszg.notenprogramm.frontend.DurchschnittController" alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:controller="de.hszg.notenprogramm.controller.DurchschnittController" alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label styleClass="headline" text="Noten-Durchschnitt">
          <VBox.margin>

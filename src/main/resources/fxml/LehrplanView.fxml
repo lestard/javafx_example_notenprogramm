@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox spacing="10.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.hszg.notenprogramm.frontend.LehrplanController">
+<VBox spacing="10.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.hszg.notenprogramm.controller.LehrplanController">
    <children>
       <Label styleClass="headline" text="Lehrplan">
          <VBox.margin>

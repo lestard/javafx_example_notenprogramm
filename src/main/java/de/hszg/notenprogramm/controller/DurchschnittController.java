@@ -1,4 +1,4 @@
-package de.hszg.notenprogramm.frontend;
+package de.hszg.notenprogramm.controller;
 
 import de.hszg.notenprogramm.model.Fach;
 import de.hszg.notenprogramm.model.Lehrplan;

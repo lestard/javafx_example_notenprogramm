@@ -1,4 +1,4 @@
-package de.hszg.notenprogramm.frontend;
+package de.hszg.notenprogramm.controller;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
